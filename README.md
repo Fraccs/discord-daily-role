@@ -22,8 +22,8 @@ Options:
 
 ### *If you don't know how to get your role's ID, just follow these steps:*
 
-1. Open your ```server's settings```.
+1. Open your *server's settings*.
 
 2. Navigate to the role you want to retrieve the ID of.
 
-3. Hover over the role, click on the three dots and hit ```'Copy ID'```.
+3. Hover over the role, click on the three dots and hit *'Copy ID'*.

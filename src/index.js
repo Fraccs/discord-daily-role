@@ -6,17 +6,17 @@ require("dotenv").config();
 
 /* It's creating a new client with the needed intents. */
 const client = new Client({
-  intents: [
-    "GUILDS",
-    "GUILD_MEMBERS",
-    "GUILD_INTEGRATIONS",
-    "GUILD_MESSAGE_REACTIONS",
-    "GUILD_MESSAGE_TYPING",
-    "DIRECT_MESSAGES",
-    "GUILD_MESSAGES",
-    "DIRECT_MESSAGE_REACTIONS",
-    "DIRECT_MESSAGE_TYPING",
-  ],
+    intents: [
+        "GUILDS",
+        "GUILD_MEMBERS",
+        "GUILD_INTEGRATIONS",
+        "GUILD_MESSAGE_REACTIONS",
+        "GUILD_MESSAGE_TYPING",
+        "DIRECT_MESSAGES",
+        "GUILD_MESSAGES",
+        "DIRECT_MESSAGE_REACTIONS",
+        "DIRECT_MESSAGE_TYPING",
+    ],
 });
 
 checkNewDay()

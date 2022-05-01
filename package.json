@@ -1,39 +1,39 @@
 {
-  "name": "discord-daily-role",
-  "version": "1.0.0",
-  "description": "A Discord BOT that gives a specific role to a random user once a day.!",
-  "main": "src/index.js",
-  "scripts": {
-    "test": "nodemon .",
-    "start": "node ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mezotv/discord-boilerplate-bot.git"
-  },
-  "keywords": [
-    "Discordjs",
-    "discord-bot",
-    "discord-js",
-    "discord",
-    "javascript"
-  ],
-  "author": "Fraccs",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mezotv/discord-boilerplate-bot/issues"
-  },
-  "homepage": "https://github.com/mezotv/discord-boilerplate-bot#readme",
-  "dependencies": {
-    "@discordjs/builders": "^0.13.0",
-    "@discordjs/rest": "^0.4.1",
-    "chalk-advanced": "^1.0.3",
-    "dayjs": "^1.11.1",
-    "discord-api-types": "^0.32.0",
-    "discord.js": "^13.6.0",
-    "dotenv": "^16.0.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.16"
-  }
+    "name": "discord-daily-role",
+    "version": "1.0.0",
+    "description": "A Discord BOT that gives a specific role to a random user once a day!",
+    "main": "src/index.js",
+    "scripts": {
+        "test": "nodemon .",
+        "start": "node ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Fraccs/discord-daily-role.git"
+    },
+    "keywords": [
+        "Discordjs",
+        "discord-bot",
+        "discord-js",
+        "discord",
+        "javascript"
+    ],
+    "author": "Fraccs",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Fraccs/discord-daily-role/issues"
+    },
+    "homepage": "https://github.com/Fraccs/discord-daily-role#readme",
+    "dependencies": {
+        "@discordjs/builders": "^0.13.0",
+        "@discordjs/rest": "^0.4.1",
+        "chalk-advanced": "^1.0.3",
+        "dayjs": "^1.11.1",
+        "discord-api-types": "^0.32.0",
+        "discord.js": "^13.6.0",
+        "dotenv": "^16.0.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.16"
+    }
 }
