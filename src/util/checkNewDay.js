@@ -1,16 +1,19 @@
 const dayjs = require('dayjs');
 
-let currentDay = dayjs().minute();
+let currentDay = dayjs().day();
 
-// Checks if the day changed
-function checkNewDay(callback) {
-    if(currentDay < dayjs().minute() || (dayjs().minute() === 1 && currentDay !== 1)) {
-        currentDay = dayjs().minute();
-        callback();
-        return true;
-    }
+// Asyncronous check, (called once per second)
+async function checkTimeout(callback) {
+    setTimeout(() => {
+        if(currentDay < dayjs().day() || (dayjs().day() === 1 && currentDay !== 1)) {
+            currentDay = dayjs().day();
+            callback();
 
-    return false;
+            return true;
+        }
+
+        checkTimeout();
+    }, 1000);
 }
 
-module.exports = { checkNewDay };
+module.exports = { checkTimeout };

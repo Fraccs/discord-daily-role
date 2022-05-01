@@ -1,6 +1,7 @@
 /* Requiring the needed libraries */
 const { Collection, Client } = require('discord.js');
-const { checkNewDay } = require('./util/checkNewDay');
+const { checkTimeout } = require('./util/checkNewDay');
+const { giveRole } = require('./util/giveRole');
 
 require('dotenv').config();
 
@@ -19,7 +20,10 @@ const client = new Client({
     ],
 });
 
-checkNewDay();
+// Calls giverole if new day
+checkTimeout(() => {
+    giveRole(client)
+});
 
 /* Basically loading the event and command loader ironic right */
 require('./util/eventLoader')(client);
