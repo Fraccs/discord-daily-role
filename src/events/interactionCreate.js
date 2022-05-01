@@ -1,10 +1,10 @@
-const { readdirSync } = require("fs");
+const { readdirSync } = require('fs');
 
 module.exports = (interaction) => {
     const client = interaction.client;
-    const commandFiles = readdirSync("./src/commands/").filter((file) =>
-        file.endsWith(".js")
-    );
+    const commandFiles = readdirSync('./src/commands/').filter((file) => {
+        file.endsWith('.js')
+    });
 
     const commands = [];
 
@@ -28,7 +28,7 @@ module.exports = (interaction) => {
         if(err) console.error(err);
         
         interaction.reply({
-            content: "An error occurred while executing that command.",
+            content: 'An error occurred while executing that command.',
             ephemeral: true,
         });
     }

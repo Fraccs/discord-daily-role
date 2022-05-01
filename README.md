@@ -4,7 +4,7 @@
 
 ## Version
 
-> ### Under development.
+> ### v1.0.0 (Under development)
 
 ## Usage
 

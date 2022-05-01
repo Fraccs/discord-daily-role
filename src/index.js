@@ -1,28 +1,28 @@
 /* Requiring the needed libraries */
-const { Collection, Client } = require("discord.js");
-const { checkNewDay } = require("./util/checkNewDay");
+const { Collection, Client } = require('discord.js');
+const { checkNewDay } = require('./util/checkNewDay');
 
-require("dotenv").config();
+require('dotenv').config();
 
 /* It's creating a new client with the needed intents. */
 const client = new Client({
     intents: [
-        "GUILDS",
-        "GUILD_MEMBERS",
-        "GUILD_INTEGRATIONS",
-        "GUILD_MESSAGE_REACTIONS",
-        "GUILD_MESSAGE_TYPING",
-        "DIRECT_MESSAGES",
-        "GUILD_MESSAGES",
-        "DIRECT_MESSAGE_REACTIONS",
-        "DIRECT_MESSAGE_TYPING",
+        'GUILDS',
+        'GUILD_MEMBERS',
+        'GUILD_INTEGRATIONS',
+        'GUILD_MESSAGE_REACTIONS',
+        'GUILD_MESSAGE_TYPING',
+        'DIRECT_MESSAGES',
+        'GUILD_MESSAGES',
+        'DIRECT_MESSAGE_REACTIONS',
+        'DIRECT_MESSAGE_TYPING',
     ],
 });
 
-checkNewDay()
+checkNewDay();
 
 /* Basically loading the event and command loader ironic right */
-require("./util/eventLoader")(client);
+require('./util/eventLoader')(client);
 
 /* It's creating a new collection for the commands. */
 client.commands = new Collection();
