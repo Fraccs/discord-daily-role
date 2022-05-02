@@ -8,11 +8,9 @@ async function checkTimeout(callback) {
         if(currentDay < dayjs().day() || (dayjs().day() === 1 && currentDay !== 1)) {
             currentDay = dayjs().day();
             callback();
-
-            return true;
         }
 
-        checkTimeout();
+        checkTimeout(callback);
     }, 1000);
 }
 

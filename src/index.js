@@ -1,11 +1,9 @@
-/* Requiring the needed libraries */
 const { Collection, Client } = require('discord.js');
 const { checkTimeout } = require('./util/checkNewDay');
 const { giveRole } = require('./util/giveRole');
 
 require('dotenv').config();
 
-/* It's creating a new client with the needed intents. */
 const client = new Client({
     intents: [
         'GUILDS',
@@ -16,13 +14,13 @@ const client = new Client({
         'DIRECT_MESSAGES',
         'GUILD_MESSAGES',
         'DIRECT_MESSAGE_REACTIONS',
-        'DIRECT_MESSAGE_TYPING',
-    ],
+        'DIRECT_MESSAGE_TYPING'
+    ]
 });
 
-// Calls giverole if new day
+/* Calls giverole if new day */
 checkTimeout(() => {
-    giveRole(client)
+    giveRole(client);
 });
 
 /* Basically loading the event and command loader ironic right */
