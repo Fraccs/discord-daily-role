@@ -1,6 +1,4 @@
 const { Collection, Client } = require('discord.js');
-const { checkTimeout } = require('./util/checkNewDay');
-const { giveRole } = require('./util/giveRole');
 
 require('dotenv').config();
 
@@ -16,11 +14,6 @@ const client = new Client({
         'DIRECT_MESSAGE_REACTIONS',
         'DIRECT_MESSAGE_TYPING'
     ]
-});
-
-/* Calls giverole if new day */
-checkTimeout(() => {
-    giveRole(client);
 });
 
 /* Basically loading the event and command loader ironic right */
