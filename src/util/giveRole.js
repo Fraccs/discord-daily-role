@@ -1,9 +1,9 @@
 require('dotenv').config();
 
-function giveRole(client) {
+function giveRole(client, roleID) {
     const guild = client.guilds.cache.get(process.env.GUILD_ID);
 
-    guild.members.cache.find().then((members) => {
+    guild.members.fetch().then((members) => {
         const randomMember = members.random(); // Selecting the random member
         let role = guild.roles.cache.get(roleID);
 
