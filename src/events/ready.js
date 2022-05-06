@@ -1,19 +1,20 @@
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const { readdirSync } = require('fs');
+const path = require('path');
 
 require('dotenv').config();
 
 module.exports = async (client) => {
-    const commandFiles = readdirSync('./src/commands/').filter((file) => {
-        file.endsWith('.js');
+    const commandFiles = readdirSync('./src/commands/', (err, files) => {
+        files.filter(el => path.extname(el) === '.js');
     });
 
     const commands = [];
 
     for(const file of commandFiles) {
         const command = require(`../commands/${file}`);
-        
+
         commands.push(command.data.toJSON());
         client.commands.set(command.data.name, command);
     }
