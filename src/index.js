@@ -1,6 +1,5 @@
 const { Collection, Client } = require('discord.js');
-
-require('dotenv').config();
+const { Database } = require('./database/database');
 
 const client = new Client({
     intents: [
@@ -16,11 +15,17 @@ const client = new Client({
     ]
 });
 
-/* Basically loading the event and command loader ironic right */
+const db = new Database();
+
+/* ---- BOT setup and login ---- */
+db.connect();
+
+require('dotenv').config();
+
+// Binding BOT events to the client
 require('./util/eventLoader')(client);
 
-/* It's creating a new collection for the commands. */
+// New commands collection
 client.commands = new Collection();
 
-/* Logging the bot in. */
 client.login(process.env.TOKEN);
