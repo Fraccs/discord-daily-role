@@ -5,8 +5,8 @@ function giveRole(client, roleID) {
 
     guild.members.fetch().then((members) => {
         const randomMember = members.random(); // Selecting the random member
-        let role = guild.roles.cache.get(roleID);
-
+        const role = guild.roles.cache.get(roleID);
+        
         /* ---- Removing the role from every member ---- */
         members.forEach((member) => {
             member.roles.cache.some((role) => {
@@ -15,6 +15,9 @@ function giveRole(client, roleID) {
                 }
             });
         });
+        
+        /* ---- Adding the role to the random member ---- */
+        randomMember.roles.add(role);
     });
 }
 
