@@ -17,6 +17,21 @@ module.exports = {
     async execute(interaction, client) {
         const roleID = interaction.options.get('roleid').value;
 
+        /* ---- Checking if role exists ---- */
+        if(!interaction.guild.roles.resolve(roleID)) {
+            const embed = new MessageEmbed()
+            .setColor('#FF0000')
+            .setTitle(':x: Role not found!')
+            .setDescription(`'${roleID}' didn't resolve in any role.`)
+            .setTimestamp();
+
+            interaction.reply({
+                embeds: [embed]
+            });
+
+            return;
+        }
+        
         GuildsSchema.findOne({ guild_id: interaction.guild.id }, (err, guild) => {
             if(err) return console.error(err);
 
