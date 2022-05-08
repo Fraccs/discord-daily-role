@@ -1,5 +1,7 @@
 const { Collection, Client } = require('discord.js');
 const { Database } = require('./database/database');
+const { checkTimeout } = require('./util/checkNewDay');
+const { giveRole } = require('./util/giveRole');
 
 const client = new Client({
     intents: [
@@ -29,3 +31,8 @@ require('./util/eventLoader')(client);
 client.commands = new Collection();
 
 client.login(process.env.TOKEN);
+
+// Calls giverole if new day
+checkTimeout(() => {
+    giveRole(client);
+});

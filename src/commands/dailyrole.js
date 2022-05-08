@@ -1,7 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
-const { checkTimeout } = require('../util/checkNewDay');
-const { giveRole } = require('../util/giveRole');
 const GuildsSchema = require('../models/GuildsSchema');
 
 module.exports = {
@@ -54,11 +52,6 @@ module.exports = {
 
             interaction.reply({
                 embeds: [embed]
-            });
-
-            /* Calls giverole if new day */
-            checkTimeout(() => {
-                giveRole(client, roleID);
             });
 
             guild.save((err) => {
