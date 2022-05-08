@@ -1,23 +1,32 @@
+const GuildsSchema = require('../models/GuildsSchema');
+
 require('dotenv').config();
 
-function giveRole(client, roleID) {
-    const guild = client.guilds.cache.get(process.env.GUILD_ID);
+function giveRole(client) {
+    const guilds = client.guilds.cache;
 
-    guild.members.fetch().then((members) => {
+    guilds.forEach((guild) => {
+        const guildID = guild.id;
+        const members = guild.members.cache;
         const randomMember = members.random(); // Selecting the random member
-        const role = guild.roles.cache.get(roleID);
-        
-        /* ---- Removing the role from every member ---- */
-        members.forEach((member) => {
-            member.roles.cache.some((role) => {
-                if(role.id === roleID) {
-                    member.roles.remove(role);
-                }
+
+        GuildsSchema.findOne({ guild_id: guildID }, (err, res) => {
+            if(err) return console.error(err);
+
+            const role = guild.roles.cache.get(res.role_id);
+
+            /* ---- Removing the role from every member ---- */
+            members.forEach((member) => {
+                member.roles.cache.some((role) => {
+                    if(role.id === res.role_id) {
+                        member.roles.remove(role);
+                    }
+                });
             });
+            
+            // Adding the role to the random member
+            randomMember.roles.add(role);
         });
-        
-        /* ---- Adding the role to the random member ---- */
-        randomMember.roles.add(role);
     });
 }
 
