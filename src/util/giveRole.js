@@ -13,6 +13,8 @@ function giveRole(client) {
 
             GuildsSchema.findOne({ guild_id: guildID }, (err, res) => {
                 if(err) return console.error(err);
+
+                if(!res) return; // No document found for guild_id: guildID
     
                 const role = guild.roles.cache.get(res.role_id);
     
