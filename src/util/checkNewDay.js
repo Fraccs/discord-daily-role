@@ -1,12 +1,12 @@
 const dayjs = require('dayjs');
 
-let currentDay = dayjs().minute();
+let currentDay = dayjs().day();
 
 // Asyncronous check, (called once per second)
 async function checkTimeout(callback) {
     setTimeout(() => {
-        if(currentDay < dayjs().minute() || (dayjs().minute() === 1 && currentDay !== 1)) {
-            currentDay = dayjs().minute();
+        if(currentDay < dayjs().day() || (dayjs().day() === 1 && currentDay !== 1)) {
+            currentDay = dayjs().day();
             callback();
         }
 
