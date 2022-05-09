@@ -1,9 +1,5 @@
 <h1 align="center">DailyRole BOT</h1>
 
-<p align="center">
-    <img src="./res/logo.png" width="100px">
-</p>
-
 > ## *A Discord BOT that gives a specific role to a random user once a day.*
 
 ## 📧 | Invite me!
