@@ -1,12 +1,20 @@
-# Discord Daily Role
+<h1 align="center">DailyRole BOT</h1>
+
+<p align="center">
+    <img src="./res/logo.png" width="100px">
+</p>
 
 > ## *A Discord BOT that gives a specific role to a random user once a day.*
 
-## Version
+## 📧 | Invite me!
 
-> ### v1.0.0 (Under development)
+> https://discord.com/api/oauth2/authorize?client_id=814172130945794128&permissions=8&scope=applications.commands%20bot
 
-## Usage
+## ✔️ | Version
+
+> ### v1.0.0
+
+## 🍀 | Usage
 
 > As simple as it gets, just type the following *slash command*, and the BOT is ready to go!
 
@@ -19,6 +27,14 @@ Options:
 * ```<roleID>``` (string):
 
     * ```roleID```: The ID of the role.
+
+### *Success message*
+
+<img src="./res/success.png">
+
+### *Failure message*
+
+<img src="./res/failure.png">
 
 ### *If you don't know how to get your role's ID, just follow these steps:*
 
