@@ -7,10 +7,11 @@ function giveRole(client) {
 
     guilds.forEach((guild) => {
         const guildID = guild.id;
-
+        let randomMember;
+        
         guild.members.fetch().then((members) => {
             do {
-                const randomMember = members.random(); // Selecting the random member
+                randomMember = members.random(); // Selecting the random member
             }
             while(randomMember.user.bot); // Excluding BOTS
 
