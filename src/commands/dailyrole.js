@@ -59,11 +59,13 @@ module.exports = {
             if(!guild) { // Current guild doesn't have any record
                 guild = new GuildsSchema({
                     guild_id: interaction.guild.id,
-                    role_id: roleID
+                    role_id: roleID,
+                    channel_id: channelID
                 })
             }
-            else { // Overriding the old record roleID
+            else { // Overriding the old record
                 guild.role_id = roleID;
+                guild.channel_id = channelID;
             }
 
             /* ---- Replying with success ---- */
