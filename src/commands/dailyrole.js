@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { SlashCommandBuilder, ChannelTypes } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 const GuildsSchema = require('../models/GuildsSchema');
 
@@ -11,6 +11,12 @@ module.exports = {
         .setName('roleid')
         .setDescription('The ID of the role to set.')
         .setRequired(true)
+    )
+    .addChannelOption(option => 
+        option
+        .setName('channel')
+        .setDescription('The channel where to print the greeting message.')
+        .setRequired(false)
     ),
     async execute(interaction, client) {
         const roleID = interaction.options.get('roleid').value;
