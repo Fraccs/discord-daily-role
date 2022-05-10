@@ -1,3 +1,4 @@
+const { MessageEmbed } = require('discord.js');
 const GuildsSchema = require('../models/GuildsSchema');
 
 require('dotenv').config();
@@ -33,6 +34,22 @@ function giveRole(client) {
                 
                 // Adding the role to the random member
                 randomMember.roles.add(role);
+
+                /* ---- Sending the greeting message ---- */
+                const channel = guild.channels.resolve(res.channel_id);
+                
+                const embed = new MessageEmbed()
+                    .setColor('#00ff00')
+                    .setTitle('DailyRole BOT')
+                    .setURL('https://github.com/Fraccs/discord-daily-role')
+                    .setDescription(`Congratulations ${randomMember}, you earned the role ${role}.`)
+                    .setImage(randomMember.displayAvatarURL())
+                    .setTimestamp()
+                    .setFooter({
+                        text: 'Copyright (c) 2022 Francesco Cristiano Aliprandi'
+                    });
+
+                channel.send({ embeds: [embed] });
             });
         });
     });

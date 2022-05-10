@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { SlashCommandBuilder, ChannelTypes } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 const GuildsSchema = require('../models/GuildsSchema');
 
@@ -11,8 +11,16 @@ module.exports = {
         .setName('roleid')
         .setDescription('The ID of the role to set.')
         .setRequired(true)
+    )
+    .addChannelOption(option => 
+        option
+        .setName('channel')
+        .setDescription('The channel where to print the greeting message.')
+        .setRequired(false)
     ),
     async execute(interaction, client) {
+        const channel = interaction.options.get('channel') ? interaction.options.get('channel').channel : interaction.channel;
+        const channelID = channel.id;
         const roleID = interaction.options.get('roleid').value;
 
         /* ---- Checking if role exists ---- */
@@ -29,18 +37,35 @@ module.exports = {
 
             return;
         }
-        
+
+        /* ---- Checking if channel is a text channel ---- */
+        if(channel.type !== 'GUILD_TEXT') {
+            const embed = new MessageEmbed()
+            .setColor('#FF0000')
+            .setTitle(':x: Not a text channel!')
+            .setDescription(`'${channel.name}' isn't a text channel.`)
+            .setTimestamp();
+
+            interaction.reply({
+                embeds: [embed]
+            });
+
+            return;
+        }
+
         GuildsSchema.findOne({ guild_id: interaction.guild.id }, (err, guild) => {
             if(err) return console.error(err);
 
             if(!guild) { // Current guild doesn't have any record
                 guild = new GuildsSchema({
                     guild_id: interaction.guild.id,
-                    role_id: roleID
+                    role_id: roleID,
+                    channel_id: channelID
                 })
             }
-            else { // Overriding the old record roleID
+            else { // Overriding the old record
                 guild.role_id = roleID;
+                guild.channel_id = channelID;
             }
 
             /* ---- Replying with success ---- */
