@@ -9,7 +9,10 @@ function giveRole(client) {
         const guildID = guild.id;
 
         guild.members.fetch().then((members) => {
-            const randomMember = members.random(); // Selecting the random member
+            do {
+                const randomMember = members.random(); // Selecting the random member
+            }
+            while(randomMember.user.bot); // Excluding BOTS
 
             GuildsSchema.findOne({ guild_id: guildID }, (err, res) => {
                 if(err) return console.error(err);
