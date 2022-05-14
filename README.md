@@ -47,10 +47,10 @@ Options:
 
 <img src="./res/eden.png">
 
-### *Success message*
+### *Role successfully set*
 
 <img src="./res/success.png">
 
-### *Failure message*
+### *Failed to set role (roleID doesn't exist)*
 
 <img src="./res/failure.png">
