@@ -12,7 +12,7 @@
 
 ## 🍀 | Usage
 
-> Since the BOT has to manage roles, bring the BOT's role above the role you'd like to set inside your server's role hierarchy.
+> Since the BOT has to manage roles, bring the BOT's role (```⚪ DailyRole```) **above the role you'd like to set** inside your server's role hierarchy.
 
 > The BOT is configurable using one simple slash command!
 
@@ -30,6 +30,8 @@ Options:
 
     * ```channel```: The output text channel.
 
+    *If this option isn't provided, the output channel will be the channel where the command was sent.*
+
 ### *If you don't know how to get your role's ID, just follow these steps:*
 
 1. Open your *server's settings*.
@@ -40,6 +42,10 @@ Options:
 
 
 ## 💎 | Samples
+
+### *Role assigned*
+
+<img src="./res/eden.png">
 
 ### *Success message*
 
