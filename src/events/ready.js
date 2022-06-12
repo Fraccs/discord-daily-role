@@ -25,6 +25,11 @@ module.exports = async (client) => {
         version: '9',
     }).setToken(process.env.TOKEN);
 
+    // BOT status
+    client.user.setActivity("/dailyrole <roleID>", {
+      type: "PLAYING"
+    });
+
     (async () => {
         try {
             if (process.env.STATUS === 'PRODUCTION') {
