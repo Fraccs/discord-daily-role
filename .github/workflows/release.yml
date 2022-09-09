@@ -1,0 +1,35 @@
+name: release
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  release-gh:
+    name: Release on GitHub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '5.0.x'
+      - name: Setup git
+        run: |
+          git config user.email "$(git log -1 --pretty=format:%ae)"
+          git config user.name "$(git log -1 --pretty=format:%an)"
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.7
+        with:
+          versionSpec: '5.x'
+      - name: Determine Version
+        uses: gittools/actions/gitversion/execute@v0.9.7
+      - name: Create Version Tag
+        run: |
+          git tag v${GitVersion_SemVer}
+      - name: Release on GitHub
+        run: |
+          gh release create v${GitVersion_SemVer} -t v${GitVersion_SemVer} --target main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
