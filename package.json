@@ -1,0 +1,24 @@
+{
+  "name": "discord-daily-role",
+  "version": "0.1.0",
+  "description": "DailyRole🍀, an easy-to-use✨ role-manager Discord BOT🤖.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fraccs/discord-daily-role.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "roles"
+  ],
+  "author": "Aliprandi Francesco Cristiano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Fraccs/discord-daily-role/issues"
+  },
+  "homepage": "https://github.com/Fraccs/discord-daily-role#readme"
+}
