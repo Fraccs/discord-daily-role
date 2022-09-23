@@ -3,8 +3,20 @@ import Guild from '../models/guild'
 
 const route = express.Router()
 
-route.get('/', async (req, res) => {
-  
+route.get('/:id', async (req, res) => {
+  const { id } = req.params
+
+  const foundGuild = await Guild.findOne({
+    guild_id: id
+  })
+
+  if(!foundGuild) {
+    return res.status(404).json({
+      error: 'Guild not found'
+    })
+  }
+
+  return res.status(200).json(foundGuild)
 })
 
 route.post('/', async (req, res) => {
