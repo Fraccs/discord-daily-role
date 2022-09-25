@@ -12,7 +12,7 @@ class Database {
 
   async connect() {
     try {
-      const connection = await mongoose.connect(process.env.DEV_DB_URL!)
+      const connection = await mongoose.connect(process.env.MONGODB_URI!)
 
       this.connection = connection
     }
