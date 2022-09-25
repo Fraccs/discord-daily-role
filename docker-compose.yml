@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  bot:
+    build:
+      context: .
+    restart: unless-stopped
+  api:
+    build:
+      context: .
+      dockerfile: ./src/api/Dockerfile
+    restart: unless-stopped
+    ports:
+      - 3001
+  db:
+    image: mongo
+    restart: unless-stopped
+    ports:
+      - 27017
