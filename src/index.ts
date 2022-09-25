@@ -1,5 +1,6 @@
 import { Client } from 'discord.js'
 import dotenv from 'dotenv'
+import interactionCreate from './events/interactionCreate'
 import ready from './events/ready'
 import startBot from './utils/start'
 
@@ -16,6 +17,7 @@ const client = new Client({
 })
 
 startBot(client)
+interactionCreate(client)
 
 client.on('ready', () => {
   ready(client)
