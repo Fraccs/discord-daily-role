@@ -1,7 +1,6 @@
-import { Client } from 'discord.js'
 import handleCommand from '../utils/handleCommand'
 
-const interactionCreate = (client: Client) => {
+const interactionCreate = (client) => {
   client.on('interactionCreate', async (interaction) => {
     if(interaction.isCommand()) {
       handleCommand(client, interaction)

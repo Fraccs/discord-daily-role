@@ -1,7 +1,6 @@
-import { Client, CommandInteraction } from 'discord.js'
 import commands from '../commands/commands'
 
-const handleCommand = async (client: Client, interaction: CommandInteraction): Promise<void> => {
+const handleCommand = async (client, interaction) => {
   const command = commands.find(c => c.name === interaction.commandName)
 
   if(!command) {
