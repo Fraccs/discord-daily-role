@@ -6,4 +6,4 @@ COPY . .
 RUN mv .env.prod .env
 RUN npm i --silent
 
-CMD ["npx", "ts-node", "./src/index.ts"]
+CMD ["node", "./src/index.ts"]
