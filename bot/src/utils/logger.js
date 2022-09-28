@@ -1,14 +1,12 @@
-const info = (info) => {
-  console.log(JSON.stringify(info))
+import chalk from 'chalk'
+
+class Logger {
+  info = (message) => { console.log(chalk.blue(`🌐 ${message}`)) }
+  success = (message) => { console.log(chalk.green(`✅ ${message}`)) }
+  warning = (message) => { console.error(chalk.yellow(`⚠️ ${message}`)) }
+  error = (message) => { console.error(chalk.red(`❌ ${message}`)) }
 }
 
-const error = (error) => {
-  console.error(JSON.stringify(error))
-}
-
-const logger = {
-  info,
-  error
-}
+const logger = new Logger()
 
 export default logger

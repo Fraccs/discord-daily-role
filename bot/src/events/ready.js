@@ -2,27 +2,34 @@ import { REST } from '@discordjs/rest'
 import { Routes } from 'discord-api-types/v9'
 import config from '../utils/config.js'
 import commands from '../commands/commands.js'
+import logger from '../utils/logger.js'
 
 const ready = async (client) => {
   const registerCommands = async () => {
     try {
       if(config.STATUS === 'PRODUCTION') {
         await rest.put(Routes.applicationCommands(CLIENT_ID), {
-          body: commands.map(command => command.data.toJSON()),
+          body: commands.map(command => {
+            logger.info(`Registered '${command.data.name}' command.`)
+            return command.data.toJSON()
+          }),
         })
 
-        console.log('Successfully registered commands globally')
+        logger.success('Successfully registered commands globally.')
       } 
       else {
         await rest.put(Routes.applicationGuildCommands(CLIENT_ID, config.GUILD_ID), {
-          body: commands.map(command => command.data.toJSON())
+          body: commands.map(command => {
+            logger.info(`Registered '${command.data.name}' command.`)
+            return command.data.toJSON()
+          })
         })
 
-        console.log('Successfully registered commands locally')
+        logger.success('Successfully registered commands locally.')
       }
     }
     catch(err) {
-      console.error(err)
+      logger.error('Failed to register commands.')
     }
   }
 
