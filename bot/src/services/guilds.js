@@ -7,3 +7,9 @@ const create = async (guild) => {
 
   return res.data
 }
+
+const guildsService = {
+  create
+}
+
+export default guildsService

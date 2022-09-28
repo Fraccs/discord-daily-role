@@ -1,4 +1,5 @@
 import { SlashCommandBuilder } from '@discordjs/builders'
+import guildsService from '../services/guilds.js'
 
 const add = {
   data: new SlashCommandBuilder()
@@ -17,7 +18,29 @@ const add = {
         .setRequired(false)
     ),
   run: async (client, interaction) => {
-    console.log('prova')
+    const roleId = interaction.options.get('roleid').value
+    
+    if(!interaction.guild.roles.resolve(roleId)) {
+      interaction.reply({
+        content: 'Not resolved'
+      })
+
+      return
+    }
+
+    if(channel.type !== 'GUILD_TEXT') {
+      interaction.reply({
+        content: 'Not text'
+      })
+
+      return
+    }
+
+    const res = await guildsService.create(guild)
+
+    interaction.reply({
+      content: 'Resolved'
+    })
   }
 }
 

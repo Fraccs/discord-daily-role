@@ -2,8 +2,8 @@ FROM node:16.14.0
 
 WORKDIR /api
 
-COPY ../../ .
+COPY . .
 RUN mv .env.prod .env
 RUN npm i --silent
 
-CMD ["npx", "ts-node", "./src/api/index.ts"]
+CMD ["npx", "ts-node", "./src/index.ts"]
