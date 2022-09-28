@@ -1,5 +1,7 @@
+import config from "./config.js"
+
 const startBot = async (client) => {
-  await client.login(process.env.TOKEN)
+  await client.login(config.TOKEN)
 }
 
 export default startBot
