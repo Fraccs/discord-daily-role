@@ -1,4 +1,4 @@
-import handleCommand from '../utils/handleCommand'
+import handleCommand from '../utils/handleCommand.js'
 
 const interactionCreate = (client) => {
   client.on('interactionCreate', async (interaction) => {
