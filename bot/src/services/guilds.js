@@ -9,6 +9,12 @@ const create = async (guild) => {
   return res.data
 }
 
+const getCurrent = async (guildId) => {
+  const res = await axios.get(`${baseUrl}/${guildId}`)
+
+  return res.data
+}
+
 const remove = async (guildId) => {
   const res = await axios.delete(`${baseUrl}/${guildId}`)
 
@@ -17,6 +23,7 @@ const remove = async (guildId) => {
 
 const guildsService = {
   create,
+  getCurrent,
   remove
 }
 
