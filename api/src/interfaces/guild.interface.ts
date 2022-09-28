@@ -1,5 +1,5 @@
 export interface IGuild {
-  channel_id: number,
-  guild_id: number,
-  role_id: number
+  channel_id: string,
+  guild_id: string,
+  role_id: string
 }
