@@ -1,7 +1,5 @@
 import mongoose from 'mongoose'
-import dotenv from 'dotenv'
-
-dotenv.config()
+import config from '../utils/config'
 
 class Database {
   connection: null | mongoose.Mongoose
@@ -12,7 +10,7 @@ class Database {
 
   async connect() {
     try {
-      const connection = await mongoose.connect(process.env.MONGODB_URI!)
+      const connection = await mongoose.connect(config.MONGODB_URI!)
 
       this.connection = connection
     }
