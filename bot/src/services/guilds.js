@@ -1,6 +1,7 @@
 import axios from 'axios'
+import config from '../utils/config.js'
 
-const baseUrl = '/api/guilds'
+const baseUrl = `${config.HOST}/api/guilds`
 
 const create = async (guild) => {
   const res = await axios.post(baseUrl, guild)

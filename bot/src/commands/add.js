@@ -1,3 +1,4 @@
+import { EmbedBuilder } from 'discord.js'
 import { SlashCommandBuilder } from '@discordjs/builders'
 import guildsService from '../services/guilds.js'
 
@@ -18,29 +19,51 @@ const add = {
         .setRequired(false)
     ),
   run: async (client, interaction) => {
+    const channel = interaction.channel
     const roleId = interaction.options.get('roleid').value
-    
+
     if(!interaction.guild.roles.resolve(roleId)) {
+      const embed = new EmbedBuilder()
+        .setColor('#FF0000')
+        .setTitle(':x: Role not found!')
+        .setDescription(`'${roleId}' didn't resolve in any role.`)
+        .setTimestamp()
+
       interaction.reply({
-        content: 'Not resolved'
+        embeds: [embed]
       })
 
       return
     }
 
-    if(channel.type !== 'GUILD_TEXT') {
-      interaction.reply({
-        content: 'Not text'
+    try {
+      await guildsService.create({
+        channel_id: channel.id,
+        guild_id: interaction.guild.id,
+        role_id: roleId
       })
+      
+      const embed = new EmbedBuilder()
+        .setColor('#00FF00')
+        .setTitle(':white_check_mark: Role successfully set!')
+        .setDescription(`${interaction.guild.roles.resolve(roleId)}`)
+        .setTimestamp()
 
-      return
+      interaction.reply({
+        embeds: [embed]
+      })
     }
+    catch(e) {
+      const embed = new EmbedBuilder()
+        .setColor('#FF0000')
+        .setTitle(':x: An error occurred!')
+        .setDescription(`'${roleId}' is already saved.`)
+        .setTimestamp()
 
-    const res = await guildsService.create(guild)
-
-    interaction.reply({
-      content: 'Resolved'
-    })
+      interaction.reply({
+        embeds: [embed]
+      })
+    }
   }
 }
 
