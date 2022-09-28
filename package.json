@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "description": "DailyRole🍀, an easy-to-use✨ role-manager Discord BOT🤖.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bot": "nodemon ./src/index.ts",
+    "bot": "nodemon ./src/index.js",
     "api": "nodemon ./src/api/index.ts"
   },
   "repository": {

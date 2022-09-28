@@ -1,17 +1,15 @@
-import commands from '../commands/commands'
+import commands from '../commands/commands.js'
 
 const handleCommand = async (client, interaction) => {
-  const command = commands.find(c => c.name === interaction.commandName)
+  const command = commands.find(c => c.data.name === interaction.commandName)
 
   if(!command) {
-    interaction.followUp({
+    interaction.reply({
       content: 'An error has occurred'
     })
     
     return
   }
-
-  await interaction.deferReply()
 
   command.run(client, interaction)
 }
