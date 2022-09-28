@@ -9,8 +9,15 @@ const create = async (guild) => {
   return res.data
 }
 
+const remove = async (guildId) => {
+  const res = await axios.delete(`${baseUrl}/${guildId}`)
+
+  return res.data
+}
+
 const guildsService = {
-  create
+  create,
+  remove
 }
 
 export default guildsService
