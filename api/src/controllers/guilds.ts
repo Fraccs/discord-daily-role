@@ -47,4 +47,20 @@ route.post('/', async (req, res) => {
   return res.status(200).json(savedGuild)
 })
 
+route.delete('/:id', async (req, res) => {
+  const guild_id = req.params.id
+
+  const foundGuild = await Guild.findOneAndDelete({
+    guild_id
+  })
+
+  if(!foundGuild) {
+    return res.status(404).json({
+      error: 'Guild not found'
+    })
+  }
+
+  res.status(200).json(foundGuild)
+})
+
 export default route
