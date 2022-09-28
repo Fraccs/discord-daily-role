@@ -1,7 +1,9 @@
 import add from './add.js'
+import remove from './remove.js'
 
 const commands = [
-  add
+  add,
+  remove
 ]
 
 export default commands
