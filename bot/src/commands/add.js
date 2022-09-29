@@ -1,6 +1,8 @@
 import { EmbedBuilder } from 'discord.js'
 import { SlashCommandBuilder } from '@discordjs/builders'
 import guildsService from '../services/guilds.js'
+import logger from '../utils/logger.js'
+import isAdmin from '../utils/isAdmin.js'
 
 const add = {
   data: new SlashCommandBuilder()
@@ -15,6 +17,11 @@ const add = {
   run: async (client, interaction) => {
     const channel = interaction.channel
     const roleId = interaction.options.get('roleid').value
+
+    if(!isAdmin(interaction.member)) {
+      logger.warning('User is not an admin.')
+      return
+    }
 
     if(!interaction.guild.roles.resolve(roleId)) {
       const embed = new EmbedBuilder()
@@ -36,7 +43,7 @@ const add = {
         guild_id: interaction.guild.id,
         role_id: roleId
       })
-      
+
       const embed = new EmbedBuilder()
         .setColor('#00FF00')
         .setTitle(':white_check_mark: Role successfully set!')
