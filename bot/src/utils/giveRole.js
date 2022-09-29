@@ -1,5 +1,6 @@
 import { EmbedBuilder } from 'discord.js'
 import guildsService from '../services/guilds.js'
+import logger from './logger.js'
 
 const giveRole = async (client) => {
   const guilds = client.guilds.cache
@@ -8,7 +9,7 @@ const giveRole = async (client) => {
     let randomMember
 
     const members = await guild.members.fetch()
-      .catch(e => console.error(e))
+      .catch(() => logger.warning(`Could not fetch members of ${guild}.`))
 
     do { // Select a random member (exclude BOTs)
       randomMember = members.random()
@@ -17,7 +18,7 @@ const giveRole = async (client) => {
 
     // Fetch the role to give
     const res = await guildsService.getCurrent(guild.id)
-      .catch(e => console.error(e))
+      .catch(() => logger.warning(`Information for guild ${guild} not found.`))
 
     if(!res) {
       return
@@ -25,9 +26,9 @@ const giveRole = async (client) => {
 
     // Resolve role
     const roles = await guild.roles.fetch()
-      .catch(e => console.error(e))
+      .catch(() => logger.warning(`Could not fetch roles of ${guild}.`))
 
-    const role = roles.find(role => role.id === res?.role_id)
+    const role = roles.find(role => role.id === res.role_id)
 
     // Remove role from members that previously had it
     members.forEach(member => {
