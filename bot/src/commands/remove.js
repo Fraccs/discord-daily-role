@@ -28,9 +28,7 @@ const remove = {
         embeds: [embed]
       })
     }
-    catch(_) {
-      console.log(_)
-
+    catch(e) {
       const embed = new EmbedBuilder()
         .setColor('#FF0000')
         .setTitle(':x: An error occurred!')
