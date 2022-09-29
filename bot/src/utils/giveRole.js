@@ -1,3 +1,4 @@
+import { EmbedBuilder } from 'discord.js'
 import guildsService from '../services/guilds.js'
 
 const giveRole = async (client) => {
@@ -15,18 +16,18 @@ const giveRole = async (client) => {
     while(randomMember.user.bot)
 
     // Fetch the role to give
-    try {
-      const res = guildsService.getCurrent(guild.id)
-    }
-    catch(e) {
-      return console.error(e)
+    const res = await guildsService.getCurrent(guild.id)
+      .catch(e => console.error(e))
+
+    if(!res) {
+      return
     }
 
     // Resolve role
     const roles = await guild.roles.fetch()
       .catch(e => console.error(e))
 
-    const role = roles.find(role => role.id = res.role_id)
+    const role = roles.find(role => role.id === res?.role_id)
 
     // Remove role from members that previously had it
     members.forEach(member => {
@@ -42,7 +43,7 @@ const giveRole = async (client) => {
     // Send output message
     const channel = guild.channels.resolve(res.channel_id)
 
-    const embed = new MessageEmbed()
+    const embed = new EmbedBuilder()
       .setColor('#00FF00')
       .setTitle('DailyRole BOT')
       .setURL('https://github.com/Fraccs/discord-daily-role')
