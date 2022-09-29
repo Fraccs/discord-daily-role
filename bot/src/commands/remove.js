@@ -2,7 +2,6 @@ import { EmbedBuilder } from 'discord.js'
 import { SlashCommandBuilder } from '@discordjs/builders'
 import guildsService from '../services/guilds.js'
 import isAdmin from '../utils/isAdmin.js'
-import logger from '../utils/logger.js'
 
 const remove = {
   data: new SlashCommandBuilder()
@@ -12,7 +11,15 @@ const remove = {
     const guildId = interaction.guild.id
 
     if(!isAdmin(interaction.member)) {
-      logger.warning('User is not an admin.')
+      const embed = new EmbedBuilder()
+        .setColor('#FF0000')
+        .setTitle(':x: Admin permissions needed!')
+        .setTimestamp()
+
+      interaction.reply({
+        embeds: [embed]
+      })
+
       return
     }
 
