@@ -16,7 +16,7 @@ const show = {
         .setColor('#0000FF')
         .setTitle('🌐 Config information.')
         .setTimestamp()
-        .setDescription(`Current role: ${interaction.guild.roles.resolve(guild.role_id)}`)
+        .setDescription(`${interaction.guild.roles.resolve(guild.role_id)}\n${interaction.guild.channels.resolve(guild.channel_id)}`)
 
       interaction.reply({
         embeds: [embed]
