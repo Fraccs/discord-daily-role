@@ -6,16 +6,16 @@ import isAdmin from '../utils/isAdmin.js'
 const add = {
   data: new SlashCommandBuilder()
     .setName('add')
-    .setDescription('Set the role that will be given each day.')
-    .addStringOption(option =>
+    .setDescription('Set the role that the BOT will assign to a random user.')
+    .addRoleOption(option =>
       option
-        .setName('roleid')
-        .setDescription('The ID of the role to set.')
+        .setName('role')
+        .setDescription('The role that the BOT will assign to a random user.')
         .setRequired(true)
     ),
   run: async (client, interaction) => {
     const channel = interaction.channel
-    const roleId = interaction.options.get('roleid').value
+    const roleId = interaction.options.get('role').value
 
     if(!isAdmin(interaction.member)) {
       const embed = new EmbedBuilder()
