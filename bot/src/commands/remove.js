@@ -1,6 +1,8 @@
 import { EmbedBuilder } from 'discord.js'
 import { SlashCommandBuilder } from '@discordjs/builders'
 import guildsService from '../services/guilds.js'
+import isAdmin from '../utils/isAdmin.js'
+import logger from '../utils/logger.js'
 
 const remove = {
   data: new SlashCommandBuilder()
@@ -8,6 +10,11 @@ const remove = {
     .setDescription('Remove the current role.'),
   run: async (client, interaction) => {
     const guildId = interaction.guild.id
+
+    if(!isAdmin(interaction.member)) {
+      logger.warning('User is not an admin.')
+      return
+    }
 
     try {
       await guildsService.remove(guildId)
