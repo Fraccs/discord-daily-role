@@ -1,6 +1,6 @@
 {
   "name": "discord-daily-role",
-  "version": "0.1.0",
+  "version": "1.1.8",
   "description": "DailyRole🍀, an easy-to-use✨ role-manager Discord BOT🤖.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
