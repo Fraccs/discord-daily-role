@@ -22,7 +22,7 @@ client.on('ready', () => {
   ready(client)
 
   // Call giveRole each day
-  nodecron.schedule('0 1 0 * * *', () => {
+  nodecron.schedule('0 0 12 * * *', () => {
     giveRole(client)
   })
 })
