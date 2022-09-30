@@ -3,6 +3,7 @@ import { Routes } from 'discord-api-types/v9'
 import config from '../utils/config.js'
 import commands from '../commands/commands.js'
 import logger from '../utils/logger.js'
+import { ActivityType } from 'discord.js'
 
 const ready = async (client) => {
   const registerCommands = async () => {
@@ -38,6 +39,10 @@ const ready = async (client) => {
   const rest = new REST({
     version: '10'
   }).setToken(config.TOKEN)
+
+  client.user.setActivity('/add <role>', {
+    type: ActivityType.Playing
+  })
 
   registerCommands()
 }
