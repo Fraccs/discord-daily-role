@@ -36,7 +36,9 @@ jobs:
         run: |
           cd api && npm version ${GitVersion_SemVer}
           cd ../bot && npm version ${GitVersion_SemVer}
-          git push --set-upstream origin main
+          cd .. && git add .
+          git commit -m "bump: ${GitVersion_SemVer}"
+          git push
           git push --tags
       - name: Release on GitHub
         run: |
