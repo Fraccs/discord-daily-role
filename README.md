@@ -1,3 +1,9 @@
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/Fraccs/discord-daily-role)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Fraccs/discord-daily-role/release)
+![GitHub](https://img.shields.io/github/license/Fraccs/discord-daily-role)
+![GitHub issues](https://img.shields.io/github/issues/Fraccs/discord-daily-role)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/Fraccs/discord-daily-role)
+
 # DailyRole BOT
 
 > *DailyRole 🍀, an easy-to-use ✨ role-manager Discord BOT 🤖.*
