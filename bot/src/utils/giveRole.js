@@ -50,10 +50,11 @@ const giveRole = async (client) => {
       .setURL('https://github.com/Fraccs/discord-daily-role')
       .setDescription(`Congratulations ${randomMember}, you earned the role ${role}.`)
       .setImage(randomMember.displayAvatarURL())
-      .setTimestamp()
       .setFooter({
-        text: 'Copyright (c) 2022 Francesco Cristiano Aliprandi'
+        text: `Copyright © 2022 DailyRole`,
+        iconURL: 'https://user-images.githubusercontent.com/78105813/193416452-0c311bad-9c10-495d-a956-5b79eed2700b.png'
       })
+      .setTimestamp()
 
     channel.send({ embeds: [embed] })
   })
