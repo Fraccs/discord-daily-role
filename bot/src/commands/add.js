@@ -27,6 +27,10 @@ const add = {
       const embed = new EmbedBuilder()
         .setColor('#FF0000')
         .setTitle(':x: Admin permissions needed!')
+        .setFooter({
+          text: `Copyright © 2022 DailyRole`,
+          iconURL: 'https://user-images.githubusercontent.com/78105813/193416452-0c311bad-9c10-495d-a956-5b79eed2700b.png'
+        })
         .setTimestamp()
 
       interaction.reply({
@@ -41,6 +45,10 @@ const add = {
         .setColor('#FF0000')
         .setTitle(':x: Role not found!')
         .setDescription(`'${roleId}' didn't resolve in any role.`)
+        .setFooter({
+          text: `Copyright © 2022 DailyRole`,
+          iconURL: 'https://user-images.githubusercontent.com/78105813/193416452-0c311bad-9c10-495d-a956-5b79eed2700b.png'
+        })
         .setTimestamp()
 
       interaction.reply({
@@ -61,6 +69,10 @@ const add = {
         .setColor('#00FF00')
         .setTitle(':white_check_mark: Role successfully set!')
         .setDescription(`${interaction.guild.roles.resolve(roleId)}\n${interaction.guild.channels.resolve(channel)}`)
+        .setFooter({
+          text: `Copyright © 2022 DailyRole`,
+          iconURL: 'https://user-images.githubusercontent.com/78105813/193416452-0c311bad-9c10-495d-a956-5b79eed2700b.png'
+        })
         .setTimestamp()
 
       interaction.reply({
@@ -72,6 +84,10 @@ const add = {
         .setColor('#FF0000')
         .setTitle(':x: An error occurred!')
         .setDescription(`'${roleId}' is already saved.`)
+        .setFooter({
+          text: `Copyright © 2022 DailyRole`,
+          iconURL: 'https://user-images.githubusercontent.com/78105813/193416452-0c311bad-9c10-495d-a956-5b79eed2700b.png'
+        })
         .setTimestamp()
 
       interaction.reply({

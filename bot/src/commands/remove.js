@@ -14,6 +14,10 @@ const remove = {
       const embed = new EmbedBuilder()
         .setColor('#FF0000')
         .setTitle(':x: Admin permissions needed!')
+        .setFooter({
+          text: `Copyright © 2022 DailyRole`,
+          iconURL: 'https://user-images.githubusercontent.com/78105813/193416452-0c311bad-9c10-495d-a956-5b79eed2700b.png'
+        })
         .setTimestamp()
 
       interaction.reply({
@@ -29,6 +33,10 @@ const remove = {
       const embed = new EmbedBuilder()
         .setColor('#00FF00')
         .setTitle(':white_check_mark: Role successfully deleted!')
+        .setFooter({
+          text: `Copyright © 2022 DailyRole`,
+          iconURL: 'https://user-images.githubusercontent.com/78105813/193416452-0c311bad-9c10-495d-a956-5b79eed2700b.png'
+        })
         .setTimestamp()
 
       interaction.reply({
@@ -40,6 +48,10 @@ const remove = {
         .setColor('#FF0000')
         .setTitle(':x: An error occurred!')
         .setDescription(`This guild hasn't registered any role.`)
+        .setFooter({
+          text: `Copyright © 2022 DailyRole`,
+          iconURL: 'https://user-images.githubusercontent.com/78105813/193416452-0c311bad-9c10-495d-a956-5b79eed2700b.png'
+        })
         .setTimestamp()
 
       interaction.reply({
