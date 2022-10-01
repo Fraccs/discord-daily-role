@@ -40,7 +40,7 @@ const ready = async (client) => {
     version: '10'
   }).setToken(config.TOKEN)
 
-  client.user.setActivity('/add <role>', {
+  client.user.setActivity('/help', {
     type: ActivityType.Playing
   })
 
