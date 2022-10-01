@@ -1,10 +1,24 @@
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/Fraccs/discord-daily-role)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Fraccs/discord-daily-role/release)
+![GitHub](https://img.shields.io/github/license/Fraccs/discord-daily-role)
+![GitHub issues](https://img.shields.io/github/issues/Fraccs/discord-daily-role)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/Fraccs/discord-daily-role)
+
 # DailyRole BOT
 
 > *DailyRole 🍀, an easy-to-use ✨ role-manager Discord BOT 🤖.*
 
+> **[ &rarr; Invite me! &larr; ](https://discord.com/api/oauth2/authorize?client_id=814172130945794128&permissions=8&scope=bot%20applications.commands)**
+
 ## Table of contents
 
-1. [ Workflow ](#workflow)
+1. [ Guide ](#usage)
+    - [ Commands ](#commands)
+        - [ add ](#add)
+        - [ show ](#show)
+        - [ remove ](#remove)
+        - [ help ](#help)
+2. [ Workflow ](#workflow)
     - [ Branching Strategy ](#branching-strategy)
         - [ Create a branch ](#create-a-branch)
         - [ Make changes ](#make-changes)
@@ -20,6 +34,38 @@
     - [ Pull Requests ](#pull-requests)
         - [ When to pull request ](#when-to-pull-request)
     - [ Versioning ](#versioning)
+
+## Guide
+
+### Commands
+
+##### 🍀 Add: `/add <role> [<channel>]` ***[Admin Permissions Required]***
+
+*Set the role that the BOT will assign to a random user each day.*
+
+**Options**
+
+`<role>`: the role that will be given each day.
+
+`*<channel>`: the text channel where the BOT will print the greeting message.
+
+**Examples**
+
+- `/add @myrole`
+
+- `/add @myrole #mytextchannel`
+
+##### 🍀 Show: `/show`
+
+*Show the current configuration (role/channel).*
+
+##### 🍀 Remove `/remove` ***[Admin Permissions Required]***
+
+*Remove the current configuration.*
+
+##### 🍀 Help `/help`
+
+*Print a comprehensive help message.*
 
 ## Workflow
 
