@@ -1,6 +1,6 @@
 {
   "name": "discord-daily-role",
-  "version": "1.2.4",
+  "version": "1.2.6",
   "description": "DailyRole🍀, an easy-to-use✨ role-manager Discord BOT🤖.",
   "main": "index.js",
   "type": "module",
