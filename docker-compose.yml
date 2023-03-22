@@ -4,15 +4,18 @@ services:
   bot:
     build:
       context: ./bot
+    container_name: discord-daily-role-bot
     restart: unless-stopped
   api:
     build:
       context: ./api
+    container_name: discord-daily-role-api
     restart: unless-stopped
     ports:
       - 3001
   db:
     image: mongo
+    container_name: discord-daily-role-db
     restart: unless-stopped
     ports:
       - 27017
